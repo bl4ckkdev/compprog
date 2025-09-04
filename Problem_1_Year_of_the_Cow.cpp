@@ -12,6 +12,8 @@ int main() {
 
     map<string, vector<pair<string, int>>> b;
 
+    map<string, int> years;
+    years["Bessie"] = 1;
     for (int i = 0; i < n; i++) {
         string cur;
         string name;
@@ -29,6 +31,8 @@ int main() {
         string target;
         cin >> target;
 
+        years[name] = a[year];
+
         b[name].push_back({target, a[year] * (st == "previous" ? 1 : -1)});
         b[target].push_back({name, a[year] * (st != "previous" ? 1 : -1)});
     }
@@ -40,24 +44,60 @@ int main() {
         //cout << endl;
     }
 
+
+    for (auto& i : b) {
+        //cout << i.first << ": ";
+        //for (auto& j : i.second) cout << j.first << " " << j.second  << "  ";
+    }
+    
+
     queue<pair<string, int>> bfs;
 
-    bfs.push({"Bessie", 0});
+    bfs.push({"Bessie", {0}});
     map<string, bool> visited;
     visited["Bessie"] = true;
     int ans = 0;
     while (!bfs.empty()) {
         string name = bfs.front().first;
         int m = bfs.front().second;
+        
         bfs.pop();
 
         vector<pair<string, int>> v = b[name];
         for (int i = 0; i < v.size(); i++) {
             if (!visited[v[i].first]) {
                 visited[v[i].first] = true;
-                bfs.push({v[i].first, m+v[i].second});
+                int diff;
 
-                if (v[i].first == "Elsie") ans = m+v[i].second;
+                //cout << v[i].second << "b ";
+                if (v[i].second<0) {
+                    if (abs(v[i].second)>years[name]) {
+                        diff = -(12+years[name]+v[i].second);
+                        //cout << diff << " ";
+                    } else if (abs(v[i].second)==years[name]) {
+                        //cout << "aa";
+                        diff = -12;
+                    } else {
+                        diff = abs(v[i].second)-years[name];
+
+                        //cout << diff << "c ";
+                    }
+                } else {
+                    if (v[i].second>years[name]) {
+                        diff = v[i].second-years[name];
+                    } else if (abs(v[i].second)==years[name]) {
+                        //cout << "bb";
+                        diff = 12;
+                    } else {
+                        diff = 12+v[i].second-years[name];
+                    }
+                }
+
+                //cout << name << " " << v[i].first << " ";
+                //cout << diff << " ";
+                bfs.push({v[i].first, m+diff});
+
+                if (v[i].first == "Elsie") ans = m+diff;
             }
         }
     }
