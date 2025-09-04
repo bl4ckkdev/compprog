@@ -1,36 +1,35 @@
-    #include <bits/stdc++.h>
-     
-    using namespace std;
-     
-    int main() {
-        ios::sync_with_stdio(false);
-        cin.tie(nullptr);
-     
-        long long n, k; cin >> n >> k;
-     
-        vector<long long> judge(n), rem(k);
-     
-        for (long long i = 0; i < n; i++) cin >> judge[i];
-        for (long long i = 0; i < k; i++) cin >> rem[i];
-     
-     
-        map<long long, long long> occ;
+#include <bits/stdc++.h>
+using namespace std;
 
-        long long sum = 0;
+//???
+int main() {
+	int mark_num;
+	int remember_num;
 
-        for (long long i = 0; i < k; i++) {
-            for (long long j = 0; j < n; j++) {
-                sum += judge[j];
+	cin >> mark_num >> remember_num;
 
-                occ[rem[i]-sum]++;
-            }
-        }
-     
-        long long cnt = 0;
-     
-        for (auto& i : occ) {
-            if (i.second >= k) cnt++;
-        }
-     
-        cout << cnt;
-    }
+	vector<int> changes(mark_num + 1);
+	vector<int> scores(remember_num);
+	for (int i = 1; i <= mark_num; ++i) {
+		cin >> changes[i];
+		changes[i] += changes[i - 1];
+	}
+	for (int &p : scores) { cin >> p; }
+
+	set<int> poss_starts;
+	for (int m = 1; m <= mark_num; ++m) {
+		poss_starts.insert(scores.front() - changes[m]);
+	}
+
+	int ans = 0;
+	for (int s : poss_starts) {
+		set<int> points;
+		for (int i = 1; i <= mark_num; ++i) { points.insert(s + changes[i]); }
+
+		bool valid = true;
+		for (int p : scores) { valid &= points.count(p); }
+
+		ans += valid;
+	}
+	cout << ans << endl;
+}
