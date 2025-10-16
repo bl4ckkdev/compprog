@@ -9,53 +9,24 @@ int main() {
     int t; cin >> t;
 
     while (t--) {
-        vector<int> counts;
-
         string s; cin >> s;
-        int n; n = s.length();
+        int sz = s.length();
+        int b = 0; vector<int> as;
 
-        int cnt = 1;
-
-        for (int i = 1; i < n; i++) {
-            if (s[i] == s[i-1]) {
-                cnt++;
-                if (i == n-1) counts.push_back(cnt);
-            } else {
-                counts.push_back(cnt);
-                cnt = 1;
-                if (i == n-1) counts.push_back(cnt);
-            }
+        for (int i = 0; i < sz; i++) {
+            if (s[i] == 'B') b++;
+            else if ((i == 0 || s[i-1] == 'B') && s[i]=='A') as.push_back(1);
+            else as.back()++;
         }
 
-        int sz = counts.size();
-        int pts = 0;
+        sort(begin(as), end(as), greater<int>());
 
-        for (int i = sz-1; i >= 0; i--) {
-            if (i-2>0) {
-                if (counts[i-1] > counts[i]) {
-                    pts += counts[i-1];
-                    counts[i-1] = 1;
-                } else {
-                    pts += counts[i];
-                    counts[i] = 1;
-                }
-            } else if (i+2 < sz) {
-                if (counts[i+1] > counts[i]) {
-                    pts += counts[i+1];
-                    counts[i+1] = 1;
-                } else {
-                    pts += counts[i];
-                    counts[i] = 1;
-                }            
-            } else {
-                if (counts[i+2]>counts[i-2]) {
+        int sum = 0;
 
-                } else {
-
-                }
-            }
+        for (int i = 0; i < min((int)as.size(), b); i++) {
+            sum += as[i];
         }
 
-        cout << pts << endl;
+        cout << sum << endl;
     }
 }

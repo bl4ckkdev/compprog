@@ -1,0 +1,1 @@
+{"name":"Local: bamboo","url":"c:\\Users\\itsbl\\Downloads\\compprog\\bamboo.cpp","tests":[{"id":1760626194886,"input":"5\n1 7 3 7 3","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\itsbl\\Downloads\\compprog\\bamboo.cpp","group":"local","local":true}
