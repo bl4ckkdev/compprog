@@ -6,12 +6,12 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n; cin >> n;
+    long long n; cin >> n;
 
-    set<int> nums;
+    set<long long> nums;
 
-    for (int i = 0; i < n; i++) {
-        int num; cin >> num;
+    for (long long i = 0; i < n; i++) {
+        long long num; cin >> num;
         nums.insert(num);
     }
 

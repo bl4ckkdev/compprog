@@ -1,0 +1,1 @@
+{"name":"Local: ovens","url":"c:\\Users\\itsbl\\Downloads\\compprog\\ovens.cpp","tests":[{"id":1767796029767,"input":"6\n1 0 0 1 1 0\n3 2 3 1 1 0","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\itsbl\\Downloads\\compprog\\ovens.cpp","group":"local","local":true}
