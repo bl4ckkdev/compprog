@@ -2,21 +2,21 @@
 
 using namespace std;
 
-int main() {
+long long main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n; cin >> n;
+    long long n; cin >> n;
 
     vector<long long> nums(n);
 
-    for (int i = 0; i < n; i++) {
+    for (long long i = 0; i < n; i++) {
         cin >> nums[i];
     }
 
     multiset<long long> art, per;
 
-    for (int i = 0; i < n; i++) {
+    for (long long i = 0; i < n; i++) {
         if (nums[i]%2 == 0) {
             art.insert(nums[i]);
         } else {
@@ -31,8 +31,8 @@ int main() {
 
         while (art.size()>1) {
 
-            int nc = *begin(art) + *next(begin(art));
-            cout << nc+8 << " ";
+            long long nc = *begin(art) + *next(begin(art));
+            //cout << nc+8 << " ";
             cost += nc+8;
 
             art.erase(begin(art));
@@ -44,6 +44,19 @@ int main() {
 
         cout << cost;
     } else {
-        cout << "aa";
+        while (per.size()>1) {
+
+            long long nc = *begin(per) + *next(begin(per));
+            //cout << nc+7 << " ";
+            cost += nc+7;
+
+            per.erase(begin(per));
+            per.erase(begin(per));
+
+            per.insert(nc+7);
+
+        }
+
+        cout << cost;
     }
 }

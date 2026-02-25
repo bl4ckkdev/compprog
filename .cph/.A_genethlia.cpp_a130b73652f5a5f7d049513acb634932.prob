@@ -1,0 +1,1 @@
+{"name":"Local: A_genethlia","url":"c:\\Users\\itsbl\\Downloads\\compprog\\A_genethlia.cpp","tests":[{"id":1771152124030,"input":"6\n19/05/2007\n01/01/1999\n31/12/2000\n19/05/1985\n05/07/2010\n02/02/2002\n","output":"YES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\itsbl\\Downloads\\compprog\\A_genethlia.cpp","group":"local","local":true}

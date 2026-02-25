@@ -1,0 +1,1 @@
+{"name":"Local: gpd","url":"c:\\Users\\itsbl\\Downloads\\compprog\\gpd.cpp","tests":[{"id":1771532114491,"input":"3\n6\n53357\n250019000261","output":"1\n50\n41539"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\itsbl\\Downloads\\compprog\\gpd.cpp","group":"local","local":true}
