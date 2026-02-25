@@ -51,7 +51,6 @@ int main() {
         //cout << endl;
 
         for (int i = 0; i < n; i++) {
-
             auto r = (lower_bound(begin(intervalr), end(intervalr), nearest[i].second-robots[i]));
             auto l = (lower_bound(begin(intervall), end(intervall), robots[i]-nearest[i].first));
 
@@ -80,6 +79,7 @@ int main() {
         for (int i = 0; i < k; i++) {
             cout << n-pref[i+1] << " ";
         }
+        
         cout << endl;
 
     }
