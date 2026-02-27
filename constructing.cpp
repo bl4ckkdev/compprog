@@ -6,6 +6,8 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
+    // Need to make it work with l<k, by adding cycles on both sides
+
     int n, k, l; cin >> n >> k >> l;
     
     vector<pair<int, int>> ab;

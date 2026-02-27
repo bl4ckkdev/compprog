@@ -46,6 +46,7 @@ int main() {
             
                 for (int j = 0; j < i.second; j++) {
                     long long score = min(i.first*(j+1), (m/i.first)*i.first);
+
                     
                     mx = max(score, mx);
 
