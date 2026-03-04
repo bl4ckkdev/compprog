@@ -1,0 +1,1 @@
+{"name":"Local: diamonds","url":"c:\\Users\\itsbl\\Downloads\\compprog\\diamonds.cpp","tests":[{"id":1772368579522,"input":"6 6 6\n0 1 6\n1 2 2\n2 3 3\n3 4 4\n4 5 5 \n5 0 6","output":"21"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\itsbl\\Downloads\\compprog\\diamonds.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: colors","url":"c:\\Users\\itsbl\\Downloads\\compprog\\colors.cpp","tests":[{"id":1772553844793,"input":"4 4 1\n1 2\n2 3\n3 4\n4 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\itsbl\\Downloads\\compprog\\colors.cpp","group":"local","local":true}
