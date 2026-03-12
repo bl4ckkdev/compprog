@@ -40,6 +40,8 @@ int reactions(int N, std::vector<int> D, std::vector<long long> T) {
         for (int i = 0; i < n; i++) {
             if (i > 0) got -= d[i-1];
             if (i > 0 && need.count({t[i-1], i-1})) need.erase({t[i-1], i-1});
+            
+            if (removes.count(i-1)) need.erase()
 
             counter -= hascurr;
 
@@ -50,11 +52,13 @@ int reactions(int N, std::vector<int> D, std::vector<long long> T) {
             //cout << endl;
             hascurr = 0;
 
+            set<pair<int,int>> removes;
+
             while ((*begin(need)).first <= got) {
                 //cout << i << " " << (*begin(need)).first << " " << (*begin(need)).second << " " << prefix[(*begin(need)).second +2] << " " << prefix[i+1] << endl; 
                 
 
-                if ((*begin(need)).second == i) hascurr = 1;
+                if ((*begin(need)).second == i) removes.insert(*begin(need));
                 need.erase(*begin(need));
 
                 //cout << "NOT: ";
